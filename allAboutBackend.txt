@@ -1,0 +1,33 @@
+### How to connect vscode to github 
+
+1. Install vscode and gitBash 
+2. create account on github
+3. create anyfolder and open in vscode
+4. open vscode terminal 
+5. Type below commands:-
+   => git config --global user.name "username"
+   => git config --global user.email "useremail"
+6. restart vscode 
+7. now we can use all git commands
+
+
+
+###To push files in github 
+1. git add .
+2. git status
+3. git command -m "comments"
+4. git push origin main/master
+
+
+
+###To pusll files from github
+1. git pull origin main/master
+2. git checkout
+
+
+
+###How to initialize backend folder
+1. npm init -y
+2. npm dotenv nodemon mongoose bcrypt jsonwebtoken
+3. go to package.json in "start" add this line "start":"nodemon index.js"
+4. also add this line "node index.js --watch --port 8080"
