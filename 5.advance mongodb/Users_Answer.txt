@@ -1,0 +1,13 @@
+
+###Question for User
+
+1. Find all the female users
+2. Find all the female users who speak one of the two languages Kannada, Hindi
+3. Find all the male users who can speak Hindi and female users who can speak Kannada
+4. Find all the users who wear the shirt size S
+5. Find all the female users who wear the shirt size XL
+6. Find all the English speaking male users and Hindi speaking female users
+7. Find all the male users who can speak Hindi or English and female users who can speak Kannada or German
+8. Find all the female users who can speak Bengali who wear shirt size XL and male users who speak German and wear shirt size either L or M
+9. Find all the female users who speak any of the Indian languages (Hindi, Punjabi, Bengali, Gujarati, Tamil, Malayalam)
+10. Men who can speak Korean
