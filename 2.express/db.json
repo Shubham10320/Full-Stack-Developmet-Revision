@@ -1,0 +1,8 @@
+{
+  "answer": [
+    { "id": 1, "name": "shubham", "city": "mumbai" },
+    { "id": 2, "name": "rahul", "city": "goa" },
+    { "id": 3, "name": "shubham", "city": "kolkata" },
+    { "id": 3, "name": "shubham", "city": "kolkata" }
+  ]
+}
