@@ -1,21 +1,12 @@
 const express=require('express');
-const { UserModel, connection } = require('./db/db');
+const {connection}=require("./config/db")
+const {UserModel}=require("./model/user.model")
 const app=express();
-
+const userRouter=require("./routers/user.router")
 app.use(express.json())
 
-app.get("/", async(req, res)=>{
-    let all_user=await UserModel.find();
-    res.send(all_user)
-})
 
-
-app.post('/user/add', async(req, res)=>{
-    const body=req.body;
-    const new_user=await UserModel.insertMany(body);
-    res.send("user added successfully")
-})
-
+app.use('/user', userRouter)
 
 app.listen(8080, async()=>{
     try {
