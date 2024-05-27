@@ -16,8 +16,8 @@ const server=http.createServer((request, response)=>{
                 response.end(data)
             }
         })
-        
     }
+    
     else if(request.url==="/postData" && request.method=="POST"){
         let data="";
         request.on("data",(chuck)=>{
@@ -44,6 +44,7 @@ server.listen(8080);
  * so, if we have node version >=20 then, we can do "node server.js --watch" it will start the server again and again whenever we make any changes
  * but, we dont have node version >=20 thats why we can use nodemon
  */
+
 /**
  * res.write karne se vo bhejega but res.end bhi use karna hoga
  * par res.end karte time he msg likhe toh same he hoga like res.end('abc')
