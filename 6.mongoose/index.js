@@ -8,6 +8,7 @@ app.use(express.json())
 
 app.use('/user', userRouter)
 
+
 app.listen(8080, async()=>{
     try {
         await connection;

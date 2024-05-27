@@ -1,0 +1,100 @@
+Mongoose
+
+1. To connect our application to the MongoDB Database
+2. Helps us define Models and schemas as well
+3. Validation etc
+
+
+
+Model -   
+
+
+two conventions 
+1. Give collection name in singular (Mongoose will make it plural in the DB)
+2. Constructor/Class/Model we'll keep the first letter capital
+
+
+db.collection_name.CRUD operations
+Model.CRUD operations
+
+
+
+
+Validations
+
+
+Type casting
+
+Type = Datatype : String, number, boolean etc
+Casting = slightly modifying it
+
+"22" -> can this be converted to a number? -> Number("22") = 22
+"twenty eight" -> can't be converted to a number -> validation failed
+
+//-----------------------------------------
+
+
+In mongooose, syntax is slightly different from what we tried in the shell
+
+
+1. we don't have insertOne, instead what mongoose prefers is a .save() method
+2. findOneandUpdate, findOneandDelete, findByIDandUpdate
+
+
+
+const express = require("express")
+const {connection, UserModel} = require("./db")
+
+const app = express()
+app.use(express.json())
+
+app.get("/", (req, res) => {
+    res.send("base API endpoint")
+})
+
+app.get("/users", async (req, res) => {
+    const users = await UserModel.find()
+    res.send(users)
+})
+
+app.post("/users/add", async (req, res) => {
+    const user = req.body;
+    const new_user = new UserModel(user)
+    new_user.save()
+    res.send("user added successfully")
+})
+
+app.put("/users/edit", async (req, res) => {
+    console.log(req.query)
+    await UserModel.findOneAndUpdate(req.query, req.body)
+    res.send("updated successfully")
+})
+
+app.listen(8763, async () => {
+    try{
+        await connection
+        console.log("connected to db successfully")
+    }
+    catch(err){
+        console.log("error while connecting to DB")
+        console.log(err)
+    }
+    console.log("listening on port 8763")
+})
+    const mongoose = require("mongoose")
+
+
+    const userSchema = mongoose.Schema({
+        name : {type : String, required : true},
+        age : {type : Number, required : true},
+        city : {type : String, required : true}
+    })
+
+    const UserModel = mongoose.model("user", userSchema)
+
+    const connection = mongoose.connect("mongodb://127.0.0.1:27017/ptweb13")
+        
+    module.exports = {
+        UserModel,
+        connection
+    }
