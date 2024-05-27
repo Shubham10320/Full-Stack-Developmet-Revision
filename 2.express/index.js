@@ -11,6 +11,7 @@ app.get("/", (request, response)=>{
     response.send("hello express.js")
 })
 
+
 app.post("/postdata", (request, response)=>{
     const paylaod=request.body;
     fs.writeFile("./data.txt", JSON.stringify(paylaod), {encoding:"utf-8"}, (err, data)=>{
@@ -21,6 +22,8 @@ app.post("/postdata", (request, response)=>{
         }  
     })
 })
+
+
 
 
 app.get('/students', (request, response)=>{
