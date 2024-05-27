@@ -1,0 +1,79 @@
+Authentication -
+    Identifying who someone/the user is
+
+    Why?
+    - to maybe keep a track of their progress?
+    - for security
+    - to keep the record of the user
+
+
+Steps : 
+
+
+1. Signup/Register - 
+                - /signup
+                - POST
+                - email, password, etc
+                - Store it in our Database
+                - Res - "Sign up successfull"
+
+2. Login - 
+            - /login
+            - POST
+            - email, password
+            - We'll check - if this email and password exists in our DB
+            - if it exists ? "login successfull" : "login failed, please sign up first"
+ 
+ 3. Protected endpoints
+
+        - /reports
+        - POST
+        - we want only the logged in user to be able to acess this 
+        how?
+
+        1. 
+            - we can ask user to send email and the password in the body
+            - We'll check - if this email and password exists in our DB
+            - if it exists ? "reports" : "login first"
+
+        Disadvantages - 
+            - Bad user experience
+            - It's expensive on the server side - waste of computation
+
+
+        2. Token based Authentication
+           - when someone logs in - if login is successfull ? "we'll give them a unique token(123)" : "login again"
+           - Now whenenver the user makes the request for the Protected endpoint (/reports in our case), they should pass the token also.
+           - we'll verify the token, if token is verified ? "give access to reports" : "login first"
+
+          - how we can generate a unique token?
+            1. Math.random() - No because no guarantee that we'll get the same random number while verifying the token.
+            2. Storing the token in DB - No because we can store the token in that user's document, but how are we going to verify the token when the user
+               accesses the /reports endpoint? we don't know who this user is to check in the DB
+
+        
+        Solution : JWT
+        JSON WEB TOKEN
+
+
+
+
+
+
+Improvements. 
+
+1. token is not passed in the query - looks ugly. So we'll expect the token to be in headers.
+   Specifically - Authentication header.
+   Convention is : 
+            Authorization : Bearer actual_token
+
+
+
+
+
+
+Time : 1693326369
+
+Unix time - Number of seconds passed from January 1st 1970
+
+unix timestamp
