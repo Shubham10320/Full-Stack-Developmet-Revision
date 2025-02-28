@@ -16,8 +16,8 @@ const app=express();
 // }
 
 
-// app.use(firstMiddleware)
-// app.use(timerMiddleware)
+app.use(firstMiddleware)
+app.use(timerMiddleware)
 
 app.get("/", (req, res)=>{
     res.send("home page");

@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 5004;
 app.use(cors());
 app.use(express.json());
 app.use(router);
+
 // get response
 // app.get("/",(req,res)=>{
 //     res.status(200).json("server start");

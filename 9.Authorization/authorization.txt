@@ -10,7 +10,7 @@ const app = express()
 app.use(express.json())
 
 
-const authentication = (req, res, next) => {
+const authentication = (req, res, next) => {   //it is used to identify the use if the user is valid 
     const token = req.headers.authorization?.split(" ")[1]
     if(!token){
         res.send("Login first")
@@ -29,7 +29,7 @@ const authentication = (req, res, next) => {
     }
 }
 
-const authorisation = (permittedRoles) => {
+const authorisation = (permittedRoles) => {  //it is used to know what kind of access does user have, as its already a valid user.
     return async (req, res, next) => {
       const userID = req.userID
       const user = await UserModel.findOne({_id : userID})
